@@ -4,6 +4,7 @@
 #
 version: 2
 
+
 defaults_working_directory: &defaults_working_directory
   working_directory: ~/repo
 
@@ -15,7 +16,7 @@ defaults_environment: &defaults_environment
   environment:
     WSO2_SERVER_VERSION: "5.7.0"
     ML_S3_URL: "s3://mojaloop-wso2-dependencies"
-    
+
 defaults_awsCliDependencies: &defaults_awsCliDependencies |
     apk --no-cache add \
             python \
@@ -49,10 +50,12 @@ jobs:
     <<: *defaults_working_directory
     <<: *defaults_docker_node
     <<: *defaults_environment
-    <<: *defaults_awsCliDependencies
     steps:
       - checkout
       - setup_remote_docker
+      - run:
+          name: Setup AWS dependencies
+          command: *defaults_awsCliDependencies
       - run:
           name: Setup Docker Build
           command: |
