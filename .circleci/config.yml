@@ -11,10 +11,11 @@ defaults_docker_node: &defaults_docker_node
   docker:
     - image: circleci/openjdk:8-jdk
 
-defaults_Environment: &defaults_environment
+defaults_environment: &defaults_environment
   environment:
     WSO2_SERVER_VERSION: "5.7.0"
     ML_S3_URL: "s3://mojaloop-wso2-dependencies"
+    
 defaults_awsCliDependencies: &defaults_awsCliDependencies |
     apk --no-cache add \
             python \
@@ -44,13 +45,11 @@ defaults_build_docker_publish: &defaults_build_docker_publish
     docker push $DOCKER_ORG/$CIRCLE_PROJECT_REPONAME-$WSO2_SERVER_VERSION:$RELEASE_TAG
 
 jobs:
-  
   build:
     <<: *defaults_working_directory
     <<: *defaults_docker_node
     <<: *defaults_environment
     <<: *defaults_awsCliDependencies
-
     steps:
       - checkout
       - setup_remote_docker
