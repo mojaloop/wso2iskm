@@ -23,7 +23,7 @@ COPY ${FILES}/tzupdater.jar ${JAVA_HOME}/
 COPY ${FILES}/ps_opt_p_enabled_for_alpine.sh /usr/bin/ps
 # create a user group and a user
 
-RUN apk add --update curl netcat-openbsd tzdata libxml2-utils tcpdump sudo && \
+RUN apk add --update curl netcat-openbsd tzdata libxml2-utils openssl  && \
     java -jar ${JAVA_HOME}/tzupdater.jar -v -f -l https://data.iana.org/time-zones/releases/tzdata2018e.tar.gz && \
     addgroup -S -g ${USER_GROUP_ID} ${USER_GROUP} && \
     adduser -S -h ${USER_HOME} -G ${USER_GROUP} -u ${USER_ID} ${USER} && \
