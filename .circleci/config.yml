@@ -14,7 +14,7 @@ defaults_docker_node: &defaults_docker_node
 
 defaults_environment: &defaults_environment
   environment:
-    WSO2_SERVER_VERSION: "5.7.0"
+    WSO2_SERVER_VERSION: "5.7.1"
     ML_S3_URL: "s3://mojaloop-wso2-dependencies"
 
 defaults_awsCliDependencies: &defaults_awsCliDependencies |
