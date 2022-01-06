@@ -19,7 +19,7 @@ defaults_environment: &defaults_environment
 
 defaults_awsCliDependencies: &defaults_awsCliDependencies |
     sudo apt-get update && sudo apt-get install python3-pip
-    sudo pip install --upgrade awscli==1.14.5 s3cmd==2.0.1 python-magic
+    sudo pip install --upgrade awscli
 
 defaults_build_docker_login: &defaults_build_docker_login
   name: Login to Docker Hub
