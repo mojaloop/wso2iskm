@@ -36,6 +36,7 @@ COPY --chown=wso2carbon:wso2 ${FILES}/${WSO2_SERVER_DIST} ${WSO2_SERVER_HOME}
 COPY --chown=wso2carbon:wso2 ${FILES}/${WSO2_SERVER_DIST}/repository/deployment/server ${USER_HOME}/wso2-tmp/server
 # copy mysql connector jar to the server as a third party library
 COPY --chown=wso2carbon:wso2 ${FILES}/lib/* ${WSO2_SERVER_HOME}/repository/components/lib/
+COPY --chown=wso2carbon:wso2 ${FILES}/plugins/* ${WSO2_SERVER_HOME}/repository/components/plugins/
 COPY --chown=wso2carbon:wso2 ${FILES}/dropins/* ${WSO2_SERVER_HOME}/repository/components/dropins/
 # copy init script to user home
 COPY --chown=wso2carbon:wso2 ${FILES}/init.sh ${USER_HOME}/

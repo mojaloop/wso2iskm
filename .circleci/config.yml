@@ -14,7 +14,7 @@ defaults_docker_node: &defaults_docker_node
 
 defaults_environment: &defaults_environment
   environment:
-    WSO2_SERVER_VERSION: "5.7.1"
+    WSO2_SERVER_VERSION: "5.7.0"
     ML_S3_URL: "s3://mojaloop-wso2-dependencies"
 
 defaults_awsCliDependencies: &defaults_awsCliDependencies |
@@ -56,6 +56,7 @@ jobs:
             aws s3 cp $ML_S3_URL/mysql-connector-java-5.1.46.jar ./files/lib/mysql-connector-java-5.1.46.jar
             aws s3 cp $ML_S3_URL/dnsjava-2.1.8.jar ./files/lib/dnsjava-2.1.8.jar            
             aws s3 cp $ML_S3_URL/kubernetes-membership-scheme-1.0.5.jar ./files/dropins/kubernetes-membership-scheme-1.0.5.jar
+            aws s3 cp $ML_S3_URL/org.wso2.carbon.identity.discovery-6.0.87.jar ./files/plugins/
             aws s3 cp $ML_S3_URL/wso2is-km-$WSO2_SERVER_VERSION.zip ./files/wso2is-km-$WSO2_SERVER_VERSION.zip
             unzip -o -q ./files/wso2is-km-$WSO2_SERVER_VERSION.zip -d ./files     
       - run:
